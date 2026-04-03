@@ -1,11 +1,16 @@
 package hu.pte.mik.prog4.zh1.model;
 
+import hu.pte.mik.prog4.zh1.xml.ZH1Element;
+import hu.pte.mik.prog4.zh1.xml.ZH1Serializable;
+
 import java.util.Objects;
 
+@ZH1Serializable
 public class Food {
     Long id;
     String restaurantName;
     String foodName;
+    @ZH1Element(text = "PRICE_FT")
     String price;
 
     public Food() {

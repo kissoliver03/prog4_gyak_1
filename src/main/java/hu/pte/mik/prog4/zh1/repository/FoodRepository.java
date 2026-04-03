@@ -10,17 +10,24 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FoodRepository {
+
+    private static final FoodRepository INSTANCE = new FoodRepository();
+
     private final Map<Long, Food> storage;
 
     private final IdProvider idProvider = IdProvider.getInstance();
 
-    public FoodRepository(Map<Long, Food> storage) {
+    private FoodRepository() {
         this.storage = Stream.of(new Food(this.idProvider.getNewId(), "Étterem_1", "Étel_1", "1000"),
                 new Food(this.idProvider.getNewId(), "Étterem_2", "Étel_2", "2000"),
                 new Food(this.idProvider.getNewId(), "Étterem_3", "Étel_3", "3000"),
                 new Food(this.idProvider.getNewId(), "Étterem_4", "Étel_4", "4000"),
                 new Food(this.idProvider.getNewId(), "Étterem_5", "Étel_5", "5000"))
                 .collect(Collectors.toMap(Food::getId, Function.identity()));
+    }
+
+    public FoodRepository getInstance() {
+        return INSTANCE;
     }
 
     public Food findById(Long id){

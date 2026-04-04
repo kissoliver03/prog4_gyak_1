@@ -20,7 +20,7 @@ public class FoodService {
 
     private final FoodRepository foodRepository;
 
-    public FoodService(FoodRepository foodRepository) {
+    public FoodService() {
         this.foodRepository = foodRepository.getInstance();
     }
 
@@ -40,7 +40,7 @@ public class FoodService {
         return this.foodRepository.delete(id);
     }
 
-    private String convertToXml(Object object){
+    public String convertToXml(Object object){
         this.checkIfSerializable(object);
 
         try{

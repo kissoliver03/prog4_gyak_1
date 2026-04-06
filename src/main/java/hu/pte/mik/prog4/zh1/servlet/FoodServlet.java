@@ -23,7 +23,10 @@ public class FoodServlet extends HttpServlet {
         if (XMLid != null) {
             Long LongXMLid = Long.parseLong(XMLid);
             Food foundFood = foodService.findById(LongXMLid);
-            foodService.convertToXml(foundFood);
+            String xmlFood = foodService.convertToXml(foundFood);
+            System.out.println("------------ GENERALT XML -----------");
+            System.out.println(xmlFood);
+            System.out.println("------------------------------------");
         }
         List<Food> model = new ArrayList<Food>();
         model = foodService.findAll();

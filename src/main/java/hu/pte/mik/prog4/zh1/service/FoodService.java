@@ -21,7 +21,7 @@ public class FoodService {
     private final FoodRepository foodRepository;
 
     public FoodService() {
-        this.foodRepository = foodRepository.getInstance();
+        this.foodRepository = FoodRepository.getInstance();
     }
 
     public Food findById(Long id){

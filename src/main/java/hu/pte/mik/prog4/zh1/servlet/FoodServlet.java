@@ -19,13 +19,7 @@ public class FoodServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String insertCookie = req.getParameter("cookieid");
-        if (insertCookie != null) {
-            Cookie cookie = new Cookie("favourite", URLEncoder.encode(insertCookie, StandardCharsets.UTF_8));
-            resp.addCookie(cookie);
-        }
-
-        String XMLid = req.getParameter("xmlid");
+        String XMLid = req.getParameter("id");
         if (XMLid != null) {
             Long LongXMLid = Long.parseLong(XMLid);
             Food foundFood = foodService.findById(LongXMLid);
@@ -40,17 +34,12 @@ public class FoodServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String deleteId = req.getParameter("deleteid");
-
-        if (deleteId != null) {
-            Long LongDeleteId = Long.parseLong(deleteId);
-            foodService.deleteById(LongDeleteId);
-
-            List<Food> foodList = new ArrayList<>();
-            foodList = foodService.findAll();
-            req.setAttribute("foodList", foodList);
-
-            req.getRequestDispatcher("/food.jsp").forward(req, resp);
+        String insertCookie = req.getParameter("id");
+        if (insertCookie != null) {
+            Cookie cookie = new Cookie("favouriteid", URLEncoder.encode(insertCookie, StandardCharsets.UTF_8));
+            resp.addCookie(cookie);
         }
+
+        resp.sendRedirect(req.getContextPath() + "/Food");
     }
 }

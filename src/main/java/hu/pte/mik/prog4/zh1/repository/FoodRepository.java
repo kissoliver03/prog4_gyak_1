@@ -26,7 +26,7 @@ public class FoodRepository {
                 .collect(Collectors.toMap(Food::getId, Function.identity()));
     }
 
-    public FoodRepository getInstance() {
+    public static FoodRepository getInstance() {
         return INSTANCE;
     }
 

@@ -12,9 +12,9 @@ public class DeleteFood extends HttpServlet {
     private final FoodService foodService = new FoodService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Long phoneId = Long.parseLong(req.getParameter("id"));
+        Long foodId = Long.parseLong(req.getParameter("deleteid"));
         try{
-            this.foodService.deleteById(phoneId);
+            this.foodService.deleteById(foodId);
         }
         catch(Exception e){
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);

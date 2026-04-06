@@ -27,19 +27,19 @@
                 <td><c:out value="${food.price}"/></td>
                 <td>
                     <form method="post" action="${pageContext.request.contextPath}/DeleteFood">
-                        <input name="id" id="deleteid" type="hidden" value="${food.id}"/>
+                        <input name="deleteid" id="deleteid" type="hidden" value="${food.id}"/>
                         <input type="submit" value="Delete"/>
                     </form>
                 </td>
                 <td>
                     <form method="post">
-                        <input name="id" id="favouriteid" type="hidden" value="${food.id}"/>
+                        <input name="favouriteid" id="favouriteid" type="hidden" value="${food.id}"/>
                         <input type="submit" value="Favourite"/>
                     </form>
                 </td>
                 <td>
                     <form method="get">
-                        <input name="id" id="xmlid" type="hidden" value="${food.id}"/>
+                        <input name="xmlid" id="xmlid" type="hidden" value="${food.id}"/>
                         <input type="submit" value="XML log"/>
                     </form>
                 </td>

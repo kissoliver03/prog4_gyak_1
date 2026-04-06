@@ -19,7 +19,7 @@ public class FoodServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String XMLid = req.getParameter("id");
+        String XMLid = req.getParameter("xmlid");
         if (XMLid != null) {
             Long LongXMLid = Long.parseLong(XMLid);
             Food foundFood = foodService.findById(LongXMLid);
@@ -34,7 +34,7 @@ public class FoodServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String insertCookie = req.getParameter("id");
+        String insertCookie = req.getParameter("favouriteid");
         if (insertCookie != null) {
             Cookie cookie = new Cookie("favouriteid", URLEncoder.encode(insertCookie, StandardCharsets.UTF_8));
             resp.addCookie(cookie);

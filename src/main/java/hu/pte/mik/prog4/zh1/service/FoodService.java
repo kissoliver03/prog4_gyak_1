@@ -122,7 +122,7 @@ public class FoodService {
                     sb.append(value);
                 }
 
-                this.appendEndTag(sb, classKey);
+                this.appendEndTag(sb, key);
                 if(!isAccessible){
                     field.setAccessible(false);
                 }
